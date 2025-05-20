@@ -11,7 +11,10 @@ import static org.mockito.Mockito.*;
 @SpringBootTest
 public class StatistiqueTests {
 
-    @MockBean
-    StatistiqueImpl statistiqueImpl;
+    @Test
+    void testStatistique(){
+        doNothing().when(StatistiqueImpl).ajouter(new Voiture("Maza", 405000));
+        when(StatistiqueImpl.prixMoyen()).thenReturn(new Echantillon(1, 405000));
+    }
 
 }
