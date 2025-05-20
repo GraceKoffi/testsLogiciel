@@ -13,5 +13,11 @@ public class StatistiqueTests {
 
     @MockBean
     StatistiqueImpl statistiqueImpl;
+    
+    @Test
+    void testStatistique(){
+        doNothing().when(statistiqueImpl).ajouter(new Voiture("Maza", 405000));
+        when(statistiqueImpl.prixMoyen()).thenReturn(new Echantillon(1, 405000));
+    }
 
 }
